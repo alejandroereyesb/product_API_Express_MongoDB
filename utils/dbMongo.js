@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
-//const DATABASE_URL = "mongodb://localhost:27017/fakeshop";
-mongoose.connect("mongodb://localhost:27017/test", { useNewUrlParser: true, useUnifiedTopology: true});
+const url = process.env.DB_URL_ATLAS ||"mongodb://localhost:27017/test";
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 
 // Eventos
