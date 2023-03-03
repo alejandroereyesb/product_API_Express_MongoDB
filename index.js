@@ -19,7 +19,9 @@ app.use(morgan(loggerFormat, {
 
 app.use(express.json()); // Para habilitar recepción de datos JSON en una request
 app.use("/api",productApiRouter);// API products
-
+app.get('/',(req,res)=>{
+    res.json({msj:"Welcome to product API"})
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
